@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <div id="view1" class="newsletter-component">
+      <div>
+        <div>
+          <h1>Stay updated!</h1>
+          <p>Join 60,000+ product managers receiving monthly updates on:</p>
+          <ul>
+            <li>Product discovery and building what matters</li>
+            <li>Measuring to ensure updates are a successs</li>
+            <li>And much more!</li>
+          </ul>
+          <form id="form">
+            <div>
+              <label for="email">Email address</label>
+              <span>Valid email required</span>
+            </div>
+            <input id="email" type="text" placeholder="email@company.com">
+            <button type="button" onclick="submitForm()">Subscribe to monthly newsletter</button>
+          </form>
+        </div>
+      </div>
+      <picture>
+        <source 
+          media="(min-width: 576px)"
+          srcset="assets/images/illustration-sign-up-desktop.svg">
+        <source 
+          media="(max-width: 576px)"
+          srcset="assets/images/illustration-sign-up-mobile.svg">
+        <img 
+          src="assets/images/illustration-sign-up-desktop.svg">
+      </picture>
+    </div>
+    <div id="view2" class="success-component d-none">
+      <div>
+        <img src="assets/images/icon-success.svg" alt="">
+        <h1>Thanks for subscribing!</h1>
+        <p>A confirmation email has been sent to ash@loremcompany.com. Please open it and click the button inside
+          to confirm your subscription.
+        </p>
+        <button onclick="dismissMessage()">Dismiss message</button>
+      </div>
+    </div>
+  </main>
+  <script>
+    function submitForm() {
+      const email = document.getElementById("email");
+      email.placeholder = "";
+      const isValid = validateEmail(email.value);
+      if (isValid) {
+        document.getElementById("form").classList.remove("invalid");
+        document.getElementById("view1").classList.add("d-none");
+        document.getElementById("view2").classList.remove("d-none");
+      } else {
+        document.getElementById("form").classList.add("invalid");
+      }
+    }
+
+    function dismissMessage() {
+      document.getElementById("view1").classList.remove("d-none");
+      document.getElementById("view2").classList.add("d-none");
+    }
+    
+    function validateEmail(email) {
+      var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    }
+  </script>
+</body>
+</html>

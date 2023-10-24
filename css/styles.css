@@ -1,0 +1,243 @@
+:root {
+    --tomato: hsl(4, 100%, 67%);
+    --dark-slate-grey: hsl(234, 29%, 20%);
+    --charcoal-grey: hsl(235, 18%, 26%);
+    --grey: hsl(231, 7%, 60%);
+    --white: hsl(0, 0%, 100%)
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    background: var(--dark-slate-grey);
+}
+
+.container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 80%;
+    height: 95vh;
+    max-width: 1280px; /* 1440 px*/
+}
+
+.newsletter-component {
+    display: flex;
+    background: var(--white);
+    border-radius: 25px;
+    width: 700px;
+    height: 450px;
+    padding: 1rem 0.5rem;
+}
+
+.newsletter-component > div {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.newsletter-component > picture > img {
+    max-height: 100%;
+}
+
+.newsletter-component h1 {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: var(--dark-slate-grey);
+    margin-bottom: 1.5rem;
+}
+
+.newsletter-component p {
+    margin-bottom: 1rem;
+    color: var(--dark-slate-grey);
+    font-size: 14px;
+}
+
+.newsletter-component ul {
+    font-size: 0.8rem;
+}
+
+.newsletter-component ul li {
+    margin-bottom: 0.5rem;
+    color: var(--dark-slate-grey);
+    display: flex;
+    align-items: center;
+}
+
+.newsletter-component ul li::before {
+    display: inline;
+    content: url(/assets/images/icon-list.svg);
+    margin-right: 0.5rem;
+}
+
+.newsletter-component form {
+    display: flex;
+    flex-direction: column;
+}
+
+.newsletter-component form > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.newsletter-component form label, span {
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: hsl(234, 29%, 20%);
+    margin-top: 1rem;
+}
+
+.newsletter-component form span {
+    display: none;
+    color: var(--tomato)
+}
+
+.newsletter-component form input {
+    padding: 0.8rem 1.5rem;
+    margin-top: 8px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--grey);
+    border-radius: 6px;
+    outline: none;
+    max-width: 100%;
+}
+
+.newsletter-component form input:hover {
+    cursor: pointer;
+}
+
+.newsletter-component form.invalid input {
+    color: var(--tomato);
+    background: hsl(4, 100%, 67%, 0.2);
+    border: 1px solid var(--tomato);
+}
+
+.newsletter-component form.invalid span {
+    display: inline;
+}
+
+.newsletter-component form button {
+    border: 0;
+    padding: 0.8rem 1.5rem;
+    color: var(--white);
+    background: var(--dark-slate-grey);
+    border-radius: 6px;
+    max-width: 100%;
+}
+
+.newsletter-component form button:hover {
+    border: 0;
+    background: var(--tomato);
+    box-shadow: 1px 5px 3px var(--tomato);
+    cursor: pointer;
+}
+
+.success-component {
+    background: var(--white);
+    height: 400px;
+    width: 400px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.success-component > div {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.success-component img {
+    width: 60px;
+}
+
+.success-component h1 {
+    margin-top: 1rem;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    color: var(--dark-slate-grey);
+    font-weight: bold;
+}
+
+.success-component p {
+    margin-top: 1rem;
+    font-size: 14px;
+    color: var(--dark-slate-grey);
+}
+
+.success-component button {
+    margin-top: 1.5rem;
+    border: 0;
+    padding: 0.8rem 1.5rem;
+    color: var(--white);
+    background: var(--dark-slate-grey);
+    border-radius: 6px;
+    justify-self: flex-end;
+}
+
+.success-component button:hover {
+    cursor: pointer;
+    background-color: var(--tomato);
+}
+
+.d-none {
+    display: none !important;
+}
+
+@media screen and (max-width: 576px) {
+    .container {
+        width: 100%;
+        height: 100vh;
+    }
+    
+    .newsletter-component {
+        display: flex;
+        flex-direction: column;
+        border-radius: 0;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+    }
+    
+    .newsletter-component > div {
+        width: 75%;
+        display: block;
+        justify-content: center;
+        align-items: center;
+        padding: 0 2rem;
+        order: 2;
+    }
+
+    .newsletter-component > picture > img {
+        width: 100%;
+        order: 1;
+    }
+
+    .newsletter-component h1 {
+        margin-top: 1.2rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .newsletter-component p {
+        margin-bottom: 1.2rem;
+    }
+
+    .success-component {
+        height: 100%;
+        width: 100%;
+        border-radius: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5rem;
+    }
+}
